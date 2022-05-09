@@ -2,6 +2,10 @@ const app = require('express')();
 const PORT = 8080;
 const resources = require('./resources.json');
 
+app.use(require('cors')({
+    origin: '*'
+}));
+
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
