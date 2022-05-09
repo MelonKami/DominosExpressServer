@@ -1,0 +1,10 @@
+{
+    "resources": {
+        "BACKOFFICE": "https://backoffice.dominos.no",
+        "PUZZEL AGENT": "https://agent.puzzel.com",
+        "DOMINO's": "https://www.dominos.no",
+        "OUTLOOK": "https://outlook.office365.com/mail/",
+        "LEVERINGS KART": "http://10.160.245.100/Maps/newmap",
+        "WORKPLACE": "https://dominos-no.workplace.com"
+    }
+}
