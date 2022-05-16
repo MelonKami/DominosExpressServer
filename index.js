@@ -2,18 +2,12 @@ const app = require('express')();
 const bodyParser = require('body-parser');
 const PORT = 8080;
 const fs = require('fs');
-let resources = {};
 
-if (fs.existsSync('./resources.json')) {
-    resources = require('./resources.json');
-}
-else {
-    fs.writeFile('resources.json', JSON.stringify({}), (err) => {
-        if (err) throw err;
-        console.log('The file has been saved!');
-    });
-    resources = require('./resources.json');
-}
+if (!fs.existsSync('./resources.json'))
+    fs.writeFileSync('./resources.json', '{}')
+
+const resources = JSON.parse(fs.readFileSync('./resources.json'));
+console.log(resources);
 
 var jsonParser = bodyParser.json()
 
