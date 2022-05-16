@@ -1,6 +1,11 @@
 const app = require('express')();
+const bodyParser = require('body-parser');
 const PORT = 8080;
 const resources = require('./resources.json');
+
+var jsonParser = bodyParser.json()
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(require('cors')({
     origin: '*'
@@ -16,8 +21,6 @@ app.get('/getResources', (req, res) => {
     res.send(resources);
 });
 
-app.post('/addResource', (req, res) => {
-    console.log('addResource');
-    // add resource
-    console.log(res.body);
-});
+app.post('/addResource', jsonParser, function (req, res) {
+    console.log(req.body);
+})
