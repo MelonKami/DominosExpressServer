@@ -21,6 +21,10 @@ app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
 
+app.get('/', (req, res) => {
+    res.send('Status: Operational');
+});
+
 app.get('/getResources', (req, res) => {
     console.log('getResources');
     // return resources
