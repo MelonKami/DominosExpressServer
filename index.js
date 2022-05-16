@@ -22,7 +22,7 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Status: Operational');
+    res.send({status: 'Operational'});
 });
 
 app.get('/getResources', (req, res) => {
