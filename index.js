@@ -15,3 +15,9 @@ app.get('/getResources', (req, res) => {
     // return resources
     res.send(resources);
 });
+
+app.post('/addResource', (req, res) => {
+    console.log('addResource');
+    // add resource
+    console.log(req.body);
+});
