@@ -23,4 +23,6 @@ app.get('/getResources', (req, res) => {
 
 app.post('/addResource', jsonParser, function (req, res) {
     console.log(req.body);
+
+    resources.push(req.body);
 })
