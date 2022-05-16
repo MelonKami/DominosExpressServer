@@ -30,5 +30,6 @@ app.get('/getResources', (req, res) => {
 app.post('/addResource', jsonParser, function (req, res) {
     console.log(req.body);
 
-    resources[req.body[0]] = req.body[1];
+    resources[req.body.name] = req.body.link;
+    fs.writeFileSync('./resources.json', JSON.stringify(resources));
 })
