@@ -6,7 +6,7 @@ const fs = require('fs');
 if (!fs.existsSync('./resources.json'))
     fs.writeFileSync('./resources.json', '{}')
 
-if (!fs.existsSync('./annoncements.json'))
+if (!fs.existsSync('./announcements.json'))
     fs.writeFileSync('./announcements.json', '{}')
 
 const resources = JSON.parse(fs.readFileSync('./resources.json', 'UTF-8'));
