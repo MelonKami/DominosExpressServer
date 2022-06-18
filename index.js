@@ -36,7 +36,7 @@ app.get('/getResources', (req, res) => {
     res.send(resources);
 });
 
-app.get('/lastAnnouncement', (req, res) => {
+app.get('/getAnnouncement', (req, res) => {
     console.log('lastAnnouncement');
 
     res.send(lastAnnouncement);
