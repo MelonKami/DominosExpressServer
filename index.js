@@ -10,6 +10,8 @@ if (!fs.existsSync('./annoncements.json'))
     fs.writeFileSync('./announcements.json', '{}')
 
 const resources = JSON.parse(fs.readFileSync('./resources.json', 'UTF-8'));
+const announcements = JSON.parse(fs.readFileSync('./announcements.json', 'UTF-8'));
+
 console.log(resources);
 
 var jsonParser = bodyParser.json()
