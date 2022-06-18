@@ -39,7 +39,7 @@ app.get('/getResources', (req, res) => {
 app.get('/getAnnouncement', (req, res) => {
     console.log('lastAnnouncement');
 
-    res.send(lastAnnouncement);
+    res.send(announcements);
 });
 
 app.post('/addResource', jsonParser, function (req, res) {
