@@ -6,6 +6,9 @@ const fs = require('fs');
 if (!fs.existsSync('./resources.json'))
     fs.writeFileSync('./resources.json', '{}')
 
+if (!fs.existsSync('./annoncements.json'))
+    fs.writeFileSync('./announcements.json', '{}')
+
 const resources = JSON.parse(fs.readFileSync('./resources.json', 'UTF-8'));
 console.log(resources);
 
@@ -29,6 +32,12 @@ app.get('/getResources', (req, res) => {
     console.log('getResources');
     // return resources
     res.send(resources);
+});
+
+app.get('/lastAnnouncement', (req, res) => {
+    console.log('lastAnnouncement');
+
+    res.send(lastAnnouncement);
 });
 
 app.post('/addResource', jsonParser, function (req, res) {
