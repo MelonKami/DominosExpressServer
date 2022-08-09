@@ -50,6 +50,10 @@ app.get('/getAnnouncement', (req, res) => {
     res.send(announcements);
 });
 
+app.post('/test', function (req, res) {
+    console.log('test')
+})
+
 app.post('/postAnnouncement', function (req, res) {
     console.log('postAnnouncement called')
     console.log(req.body);
