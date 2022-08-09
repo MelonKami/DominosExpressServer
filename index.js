@@ -18,6 +18,9 @@ var jsonParser = bodyParser.json()
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+// Make a backend announcement handler
+
+
 app.use(require('cors')({
     origin: '*'
 }));
@@ -27,7 +30,7 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-    res.send({status: 'Operational'});
+    res.send({ status: 'Operational' });
 });
 
 app.get('/getResources', (req, res) => {
@@ -41,6 +44,16 @@ app.get('/getAnnouncement', (req, res) => {
 
     res.send(announcements);
 });
+
+app.post('/postAnnouncement', jsonParser, function (req, res) {
+    console.log(req.body);
+
+    res.send({ action: succeeded })
+    // add announcement to announcement json file with correct format
+    // eg. date, time, message ect.
+    announcements.append(req.body)
+
+})
 
 app.post('/addResource', jsonParser, function (req, res) {
     console.log(req.body);
