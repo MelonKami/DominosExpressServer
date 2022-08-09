@@ -46,6 +46,7 @@ app.get('/getAnnouncement', (req, res) => {
 });
 
 app.post('/postAnnouncement', jsonParser, function (req, res) {
+    console.log('postAnnouncement called')
     console.log(req.body);
 
     announcements.announcements.append({ date: Date(), text: req.body })
@@ -53,11 +54,11 @@ app.post('/postAnnouncement', jsonParser, function (req, res) {
     console.log('saving announcement')
     fs.writeFileSync('./announcements.jsons', announcements)
 
-    res.send({ action: succeeded })
     // add announcement to announcement json file with correct format
     // eg. date, time, message ect.
     announcements.append(req.body)
 
+    res.send({ action: succeeded })
 })
 
 app.post('/addResource', jsonParser, function (req, res) {
