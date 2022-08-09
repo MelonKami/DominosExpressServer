@@ -1,7 +1,12 @@
-const app = require('express')();
+// const app = require('express')();
 const bodyParser = require('body-parser');
 const PORT = 8080;
 const fs = require('fs');
+
+const express = require('express');
+const app = express();
+
+app.use(express.json());
 
 if (!fs.existsSync('./resources.json'))
     fs.writeFileSync('./resources.json', '{}')
@@ -45,7 +50,7 @@ app.get('/getAnnouncement', (req, res) => {
     res.send(announcements);
 });
 
-app.post('/postAnnouncement', jsonParser, function (req, res) {
+app.post('/postAnnouncement', function (req, res) {
     console.log('postAnnouncement called')
     console.log(req.body);
 
@@ -61,7 +66,7 @@ app.post('/postAnnouncement', jsonParser, function (req, res) {
     res.send({ action: succeeded })
 })
 
-app.post('/addResource', jsonParser, function (req, res) {
+app.post('/addResource', function (req, res) {
     console.log(req.body);
 
     resources[req.body.name] = req.body.link;
