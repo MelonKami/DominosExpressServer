@@ -58,12 +58,12 @@ app.post('/postAnnouncement', function (req, res) {
     console.log('postAnnouncement called')
     console.log(req.body);
 
-    announcements.announcements.push({ date: Date(), text: req.body })
+    announcements.announcements.push({ date: Date(), text: stringify(req.body) })
 
     console.log(announcements)
 
     console.log('saving announcement')
-    fs.writeFileSync('./announcements.json', { announcements })
+    fs.writeFileSync('./announcements.json', JSON.stringify(announcements));
 
     // add announcement to announcement json file with correct format
     // eg. date, time, message ect.
