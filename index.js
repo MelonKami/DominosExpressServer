@@ -54,7 +54,7 @@ app.post('/test', function (req, res) {
     console.log('test')
 })
 
-app.post('/postAnnouncement', function (req, res) {
+app.post('/addAnnouncement', function (req, res) {
     console.log('postAnnouncement called')
     console.log(req.body);
 
