@@ -58,7 +58,7 @@ app.post('/postAnnouncement', function (req, res) {
     console.log('postAnnouncement called')
     console.log(req.body);
 
-    announcements.announcements.append({ date: Date(), text: req.body })
+    announcements.announcements.push({ date: Date(), text: req.body })
 
     console.log('saving announcement')
     fs.writeFileSync('./announcements.jsons', announcements.announcement)
