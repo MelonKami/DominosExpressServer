@@ -58,7 +58,7 @@ app.post('/postAnnouncement', function (req, res) {
     console.log('postAnnouncement called')
     console.log(req.body);
 
-    announcements.announcements.push({ date: Date(), text: JSON.stringify(req.body.announcement) })
+    announcements.announcements.push({ date: Date(), text: req.body.announcement })
 
     console.log(announcements)
 
@@ -69,7 +69,7 @@ app.post('/postAnnouncement', function (req, res) {
     // eg. date, time, message ect.
     // announcements.append(req.body)
 
-    res.send({ action: succeeded })
+    res.send({ status: 'succeeded' })
 })
 
 app.post('/addResource', function (req, res) {
