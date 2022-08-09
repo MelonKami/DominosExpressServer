@@ -50,6 +50,8 @@ app.post('/postAnnouncement', jsonParser, function (req, res) {
 
     announcements.announcements.append({ date: Date(), text: req.body })
 
+    fs.writeFileSync('./announcements.jsons', announcements)
+
     res.send({ action: succeeded })
     // add announcement to announcement json file with correct format
     // eg. date, time, message ect.
