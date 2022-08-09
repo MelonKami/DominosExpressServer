@@ -82,11 +82,12 @@ app.post('/addResource', function (req, res) {
 })
 
 var job = new CronJob(
-    '50 0 * * *',
+    '0 0 * * *',
     function () {
-        console.log('You will see this message every second');
+        console.log('Clearing announcements');
 
         fs.writeFileSync('./announcements.json', JSON.stringify({ announcements: [] }))
+        announcements = { "announcements": [] }
     },
     null,
     true,
