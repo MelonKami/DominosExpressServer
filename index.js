@@ -6,13 +6,15 @@ const fs = require('fs');
 const express = require('express');
 const app = express();
 
+var CronJob = require('cron').CronJob;
+
 app.use(express.json());
 
 if (!fs.existsSync('./resources.json'))
     fs.writeFileSync('./resources.json', '{}')
 
 if (!fs.existsSync('./announcements.json'))
-    fs.writeFileSync('./announcements.json', JSON.stringify({ announcements: [] })) // '{ announcements: [] }')
+    fs.writeFileSync('./announcements.json', JSON.stringify({ announcements: [] }))
 
 const resources = JSON.parse(fs.readFileSync('./resources.json', 'UTF-8'));
 const announcements = JSON.parse(fs.readFileSync('./announcements.json', 'UTF-8'));
@@ -78,3 +80,17 @@ app.post('/addResource', function (req, res) {
     resources[req.body.name] = req.body.link;
     fs.writeFileSync('./resources.json', JSON.stringify(resources));
 })
+
+var job = new CronJob(
+    '50 0 * * *',
+    function () {
+        console.log('You will see this message every second');
+
+        fs.writeFileSync('./announcements.json', JSON.stringify({ announcements: [] }))
+    },
+    null,
+    true,
+    'Europe/Oslo'
+);
+// Use this if the 4th param is default value(false)
+job.start()
