@@ -48,6 +48,8 @@ app.get('/getAnnouncement', (req, res) => {
 app.post('/postAnnouncement', jsonParser, function (req, res) {
     console.log(req.body);
 
+    announcements.announcements.append({ date: Date(), text: req.body })
+
     res.send({ action: succeeded })
     // add announcement to announcement json file with correct format
     // eg. date, time, message ect.
