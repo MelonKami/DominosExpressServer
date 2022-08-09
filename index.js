@@ -50,6 +50,7 @@ app.post('/postAnnouncement', jsonParser, function (req, res) {
 
     announcements.announcements.append({ date: Date(), text: req.body })
 
+    console.log('saving announcement')
     fs.writeFileSync('./announcements.jsons', announcements)
 
     res.send({ action: succeeded })
