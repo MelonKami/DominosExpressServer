@@ -12,7 +12,7 @@ if (!fs.existsSync('./resources.json'))
     fs.writeFileSync('./resources.json', '{}')
 
 if (!fs.existsSync('./announcements.json'))
-    fs.writeFileSync('./announcements.json', { announcements: [] })
+    fs.writeFileSync('./announcements.json', '{ announcements: [] }')
 
 const resources = JSON.parse(fs.readFileSync('./resources.json', 'UTF-8'));
 const announcements = JSON.parse(fs.readFileSync('./announcements.json', 'UTF-8'));
