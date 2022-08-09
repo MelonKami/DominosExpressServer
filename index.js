@@ -58,7 +58,7 @@ app.post('/postAnnouncement', function (req, res) {
     console.log('postAnnouncement called')
     console.log(req.body);
 
-    announcements.announcements.push({ date: Date(), text: req.body.announcement })
+    announcements.announcements.push({ date: req.body.date, text: req.body.announcement })
 
     console.log(announcements)
 
