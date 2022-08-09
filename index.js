@@ -12,7 +12,7 @@ if (!fs.existsSync('./resources.json'))
     fs.writeFileSync('./resources.json', '{}')
 
 if (!fs.existsSync('./announcements.json'))
-    fs.writeFileSync('./announcements.json', '{}')
+    fs.writeFileSync('./announcements.json', { announcements: [] })
 
 const resources = JSON.parse(fs.readFileSync('./resources.json', 'UTF-8'));
 const announcements = JSON.parse(fs.readFileSync('./announcements.json', 'UTF-8'));
@@ -58,7 +58,7 @@ app.post('/postAnnouncement', function (req, res) {
     console.log('postAnnouncement called')
     console.log(req.body);
 
-    announcements.push({ date: req.body.date, text: req.body.announcement })
+    announcements.announcements.push({ date: req.body.date, text: req.body.announcement })
 
     console.log(announcements)
 
