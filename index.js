@@ -17,7 +17,7 @@ if (!fs.existsSync('./announcements.json'))
     fs.writeFileSync('./announcements.json', JSON.stringify({ announcements: [] }))
 
 const resources = JSON.parse(fs.readFileSync('./resources.json', 'UTF-8'));
-const announcements = JSON.parse(fs.readFileSync('./announcements.json', 'UTF-8'));
+var announcements = JSON.parse(fs.readFileSync('./announcements.json', 'UTF-8'));
 
 console.log(resources);
 console.log(announcements)
