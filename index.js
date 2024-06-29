@@ -43,7 +43,8 @@ app.get('/', (req, res) => {
 app.get('/getResources', (req, res) => {
     console.log('getResources');
     // return resources
-    res.send(resources);
+    res.send({date: '29:5 23:33', announcement: "test"})
+    // res.send(resources);
 });
 
 app.get('/getAnnouncement', (req, res) => {
