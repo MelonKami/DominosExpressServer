@@ -43,11 +43,14 @@ app.get('/', (req, res) => {
 app.get('/getResources', (req, res) => {
     console.log('getResources');
     // return resources
+    console.log('Sending resources: ' + resources)
     res.send(resources);
 });
 
 app.get('/getAnnouncement', (req, res) => {
     console.log('lastAnnouncement');
+    
+    console.log('Sending announcements: ' + announcements)
 
     res.send(announcements);
 });
