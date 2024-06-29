@@ -20,6 +20,7 @@ const resources = JSON.parse(fs.readFileSync('./resources.json', 'UTF-8'));
 const announcements = JSON.parse(fs.readFileSync('./announcements.json', 'UTF-8'));
 
 console.log(resources);
+console.log(announcements)
 
 var jsonParser = bodyParser.json()
 
@@ -43,15 +44,12 @@ app.get('/', (req, res) => {
 app.get('/getResources', (req, res) => {
     console.log('getResources');
     // return resources
-    console.log('Sending resources: ' + resources)
     res.send(resources);
 });
 
 app.get('/getAnnouncement', (req, res) => {
     console.log('lastAnnouncement');
     
-    console.log('Sending announcements: ' + announcements)
-
     res.send(announcements);
 });
 
