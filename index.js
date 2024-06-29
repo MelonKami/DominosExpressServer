@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 app.get('/getResources', (req, res) => {
     console.log('getResources');
     // return resources
-    console.log('Sending resources: ' + resources.json())
+    console.log('Sending resources: ' + resources)
     res.send(resources);
 });
 
